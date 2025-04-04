@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav Londhe - DevOps Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            color: #333;
+            line-height: 1.7;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        header img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            display: block;
+            margin: 20px auto;
+            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+        header img:hover {
+            transform: scale(1.05);
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        header p {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        nav:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        nav a {
+            color: #fff;
+            margin: 0 25px;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: inline-block;
+            transition: 0.3s;
+            border-radius: 10px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        nav a:hover {
+            background: linear-gradient(to bottom, #6a11cb, #2575fc);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        nav a.active {
+            background: linear-gradient(to bottom, #ff8e40, #ff5e57);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        section {
+            padding: 40px;
+            background: #fff;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.15);
+        }
+        section h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .skill-item {
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #bdc3c7;
+        }
+        .skill-item:hover {
+            background: linear-gradient(to bottom, #fff, #f0f0f0);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .skill-item strong {
+            display: block;
+            font-size: 1.3em;
+            color: #3498db;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .experience-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+        .experience-item h3 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .experience-item p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .experience-item ul {
+            list-style: disc;
+            padding-left: 25px;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+         .projects-list li {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .projects-list li strong{
+            display: block;
+            font-size: 1.5em;
+            color: #3498db;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .projects-list li p{
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        .projects-list li a{
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .projects-list li a:hover{
+            color: #c0392b;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: #fff;
+            margin-top: 40px;
+            border-top: 5px solid #e74c3c;
+        }
+        .social-icons a {
+            color: #fff;
+            margin: 0 20px;
+            font-size: 28px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #3498db;
+            transform: scale(1.2);
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            nav a {
+                display: block;
+                padding: 15px;
+                margin: 12px 0;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1{
+                font-size: 2.5em;
+            }
+            header p{
+                font-size: 1.1em;
+            }
+            section h2{
+                font-size: 2.5em;
+            }
+        }
+
+        /* Keyframes for animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Apply animation to sections */
+        section {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gradient-to-r from-purple-500 to-blue-500 text-white py-20 text-center rounded-b-lg shadow-md">
+        <img src="profile.jpg" alt="Vaibhav Londhe" class="rounded-full mx-auto border-8 border-white/30 shadow-lg hover:scale-105 transition-transform duration-300">
+        <h1 class="text-4xl font-bold mb-4 text-white tracking-tight">Vaibhav Londhe</h1>
+        <p class="text-xl text-gray-200 font-semibold">DevOps Engineer | Linux Administrator | CI/CD | Infrastructure-as-Code</p>
+    </header>
+    <nav class="bg-gray-900 bg-opacity-90 sticky top-0 z-50 rounded-md shadow-lg transition-colors duration-300 hover:bg-gray-800">
+        <div class="container mx-auto py-4 text-center">
+            <a href="#about" class="text-white hover:bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg">About</a>
+            <a href="#skills" class="text-white hover:bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg">Skills</a>
+            <a href="#experience" class="text-white hover:bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg">Experience</a>
+            <a href="#projects" class="text-white hover:bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg">Projects</a>
+            <a href="#education" class="text-white hover:bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg">Education</a>
+            <a href="#certifications" class="text-white hover:bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg">Certifications</a>
+            <a href="#contact" class="text-white hover:bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg">Contact</a>
+        </div>
+    </nav>
+    <div class="container mx-auto">
+        <section id="about" class="bg-white rounded-lg shadow-md py-12 px-10 my-8 hover:shadow-lg transition-all duration-300">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center border-b-4 border-red-500 pb-4 tracking-tight">About Me</h2>
+            <p class="text-gray-700 text-lg leading-relaxed">
+                Results-driven DevOps Engineer with a strong background in cloud computing, CI/CD automation, and infrastructure as code (IaC). Experienced in designing and managing scalable, secure, and efficient DevOps solutions to optimize system performance and reliability. Passionate about leveraging the latest technologies to drive innovation and improve system performance.
+            </p>
+        </section>
+        <section id="skills" class="bg-white rounded-lg shadow-md py-12 px-10 my-8 hover:shadow-lg transition-all duration-300">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center border-b-4 border-red-500 pb-4 tracking-tight">Technical Skills</h2>
+            <div class="skills-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">Cloud Computing:</strong>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>AWS (EC2, S3, RDS, VPC, IAM, Route 53, CloudFront, ELB, Auto Scaling)</li>
+                    </ul>
+                </div>
+                <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">DevOps:</strong>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Jenkins, Git, GitHub, GitLab</li>
+                        <li>GitOps, CI/CD, AWS CodePipeline, </li>
+                    </ul>
+                </div>
+                <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">Containers:</strong>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Docker, Kubernetes, Docker Compose</li>
+                        <li>AWS ECR</li>
+                        <li>Helm</li>
+                    </ul>
+                </div>
+                <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">Infrastructure as Code:</strong>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Terraform, Ansible, AWS CloudFormation</li>
+                        <li>Puppet, Chef</li>
+                    </ul>
+                </div>
+                <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">Monitoring & Logging:</strong>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Prometheus, Grafana, CloudWatch</li>
+                        <li>ELK Stack (Elasticsearch, Logstash, Kibana), Splunk</li>
+                        <li>Nagios</li>
+                    </ul>
+                </div>
+                <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">Scripting & Programming:</strong>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Python, Bash, Shell</li>
+                        <li> Go, Ruby</li>
+                        <li>AWS CLI</li>
+                    </ul>
+                </div>
+                 <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">Operating Systems:</strong>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Linux (Ubuntu, CentOS, RedHat), Windows Server</li>
+                    </ul>
+                </div>
+                <div class="skill-item bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-300">
+                    <strong class="text-blue-600 block text-lg font-semibold mb-3">Databases:</strong>
+                     <ul class="list-disc list-inside text-gray-700">
+                        <li>MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="experience" class="bg-white rounded-lg shadow-md py-12 px-10 my-8 hover:shadow-lg transition-all duration-300">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center border-b-4 border-red-500 pb-4 tracking-tight">Experience</h2>
+            <div class="experience-item">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-800">AWS Intern | Sumago Infotech Pvt. Ltd., Pune (Dec 2023 - Feb 2024)</h3>
+                <p class="text-gray-600 text-lg mb-6">Key Contributions:</p>
+                <ul class="list-disc list-inside text-gray-700 text-lg">
+                    <li class="mb-2">Migrated on-prem applications to AWS, resulting in a 30% reduction in operational costs and a 20% improvement in application performance.  Utilized AWS services including EC2, S3, and RDS.</li>
+                    <li class="mb-2">Implemented CI/CD pipelines using AWS CodePipeline, reducing deployment time by 40% and deployment errors by 25%.  Integrated GitHub for source control and automated testing.</li>
+                    <li class="mb-2">Worked with AWS VPC, IAM, CloudFront, and Elastic Cache to design and implement secure and scalable infrastructure.  Ensured compliance with security best practices.</li>
+                    <li class="mb-2">Collaborated with cross-functional teams to ensure smooth migration and deployment processes.  Provided training and documentation to team members.</li>
+                    <li class="mb-2">Developed a monitoring solution using CloudWatch to track application performance and identify potential issues.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="projects" class="bg-white rounded-lg shadow-md py-12 px-10 my-8 hover:shadow-lg transition-all duration-300">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center border-b-4 border-red-500 pb-4 tracking-tight">Projects</h2>
+            <ul class="projects-list">
+                <li>
+                    <strong class="text-xl font-semibold text-blue-700">Web Application Deployment</strong> -
+                    <p class="text-gray-700">
+                        Used Vagrant with multiple VMs on Oracle VirtualBox, deploying services like NGINX, Tomcat, RabbitMQ, Memcached, MySQL. This setup improved development efficiency by 25% and reduced environment-related bugs by 15%.
+                    </p>
+                    <p>
+                        <a href="https://github.com/yourprofile/webapp-deployment" target="_blank" class="text-red-600 hover:text-red-800 font-bold inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <strong class="text-xl font-semibold text-blue-700">AWS Lift and Shift Migration</strong> -
+                    <p class="text-gray-700">
+                        Migrated applications to AWS using EC2, ELB, S3/NFS, Auto Scaling, and Route 53. Achieved 99.99% uptime and reduced infrastructure costs by 10%.
+                    </p>
+                    <p>
+                        <a href="https://github.com/yourprofile/aws-migration" target="_blank" class="text-red-600 hover:text-red-800 font-bold inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <strong class="text-xl font-semibold text-blue-700">Jenkins CI/CD Pipeline</strong> -
+                    <p class="text-gray-700">
+                        Built a pipeline using GitHub, Git, Maven, SonarQube, Nexus, ECR, ECS, and Groovy scripting. Reduced deployment time from 2 hours to 15 minutes.
+                    </p>
+                    <p>
+                        <a href="https://github.com/yourprofile/jenkins-pipeline" target="_blank" class="text-red-600 hover:text-red-800 font-bold inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <strong class="text-xl font-semibold text-blue-700">Microservices Deployment</strong> -
+                    <p class="text-gray-700">
+                        Used Docker, Kubernetes, and CI/CD pipelines to manage and deploy microservices architecture. Improved scalability and resilience of the application.
+                    </p>
+                     <p>
+                        <a href="https://github.com/yourprofile/microservices-k8s" target="_blank" class="text-red-600 hover:text-red-800 font-bold inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <strong class="text-xl font-semibold text-blue-700">GitOps & Terraform</strong> -
+                    <p class="text-gray-700">
+                        Automated AWS infrastructure using Terraform to manage VPC, EC2, S3, Load Balancer, Auto Scaling, IAM Users. Reduced infrastructure provisioning time by 50%.
+                    </p>
+                    <p>
+                        <a href="https://github.com/yourprofile/terraform-gitops" target="_blank" class="text-red-600 hover:text-red-800 font-bold inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section id="education" class="bg-white rounded-lg shadow-md py-12 px-10 my-8 hover:shadow-lg transition-all duration-300">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center border-b-4 border-red-500 pb-4 tracking-tight">Education</h2>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Bachelor of Engineering (B.E.) - Electronics & Telecommunication</h3>
+                <p class="text-gray-600">Parikrama College of Engineering, Kashti, Shrigonda, Ahmednagar</p>
+                <p class="text-gray-600">Savitribai Phule Pune University | Aug 2021 - May 2025 | GPA: 8.5</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Higher Secondary Certificate (HSC)</h3>
+                <p class="text-gray-600">JTS High School, Belapur Tal-Shrirampur | Score – 76%</p>
+            </div>
+        </section>
+        <section id="certifications" class="bg-white rounded-lg shadow-md py-12 px-10 my-8 hover:shadow-lg transition-all duration-300">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center border-b-4 border-red-500 pb-4 tracking-tight">Certifications</h2>
+            <ul class="list-disc list-inside text-gray-700 text-lg">
+                <li class="mb-2"><strong>DevOps Beginner to Advanced with Projects</strong> – Udemy (Issued Feb 2025)</li>
+                <li class="mb-2"><strong>Oracle Cloud Infrastructure 2024 Certified AI Foundations Associate</strong> – Oracle (Issued Feb 2025)</li>
+                <li class="mb-2"><strong>Getting Started with Artificial Intelligence Badge</strong> – IBM (Issued Oct 2024)</li>
+                <li class="mb-2"><strong>Python for Everybody Specialization</strong> – University of Michigan (Issued Apr 2022)</li>
+            </ul>
+        </section>
+        <section id="contact" class="bg-white rounded-lg shadow-md py-12 px-10 my-8 hover:shadow-lg transition-all duration-300">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center border-b-4 border-red-500 pb-4 tracking-tight">Contact</h2>
+            <p class="text-gray-700 text-lg mb-4">Email: <a href="mailto:Vaibhavlondhe050@gmail.com" class="text-blue-600 hover:text-blue-800 transition-colors">Vaibhavlondhe050@gmail.com</a></p>
+            <p class="text-gray-700 text-lg mb-4">Phone: <a href="tel:+918788212482" class="text-blue-600 hover:text-blue-800 transition-colors">+91 8788212482</a></p>
+            <p class="text-gray-700 text-lg mb-6">LinkedIn: <a href="https://www.linkedin.com/in/vaibhav-l-b53458253" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors inline-flex items-center">
+                <i class="fab fa-linkedin mr-2"></i> Profile
+            </a></p>
+            <div class="social-icons flex justify-center mt-8">
+                <a href="https://github.com/yourprofile" target="_blank" class="text-gray-800 hover:text-blue-600 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhav-l-b53458253" target="_blank" class="text-gray-800 hover:text-blue-600 transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </section>
+    </div>
+    <footer class="bg-gray-900 text-white py-8 text-center border-t-4 border-red-500 rounded-t-lg shadow-md">
+        <p class="text-lg">© 2025 Vaibhav Londhe | DevOps Portfolio</p>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 150 && window.scrollY < sectionTop + sectionHeight - 150) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    navLinks[index].classList.add('active');
+                }
+            });
+        });
+
+        // Add scroll reveal animation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < window.scrollY + windowHeight - 200) {
+                    section.classList.add('fade-in');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
